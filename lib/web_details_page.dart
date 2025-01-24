@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:internet_connectivity_checker/internet_connectivity_checker.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 
+import 'constants.dart';
+
 class WebDetailsPage extends StatefulWidget {
   const WebDetailsPage({super.key,});
 
@@ -85,7 +87,7 @@ class _WebDetailsPageState extends State<WebDetailsPage> {
                   : null,
             ),
             body: WebView(
-              initialUrl: 'http://ykjam.com.tm/',
+              initialUrl: baseUrl,
               javascriptMode: JavascriptMode.unrestricted,
               onProgress: (progress) {
                 setState(() {
@@ -127,7 +129,7 @@ class _WebDetailsPageState extends State<WebDetailsPage> {
                   const Padding(
                     padding: EdgeInsets.all(8.0),
                     child: Text(
-                      'Internediňizi barlaň',
+                      'Check connection',
                       style: TextStyle(fontSize: 18),
                     ),
                   ),
@@ -139,7 +141,7 @@ class _WebDetailsPageState extends State<WebDetailsPage> {
                       webViewController?.reload();
                          }
                     },
-                    child: const Text('Täzeden synanyşyň'),
+                    child: const Text('Try again'),
                   ),
                 ],
               ),
